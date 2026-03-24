@@ -5,6 +5,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/moon/Desktop/Code/Calorie counter/instance/calories.db'
 db = SQLAlchemy(app)
+#jxhchcdhhd
 
 class foodEntry(db.Model):
     id = db.Column(db.Integer, primary_key = True)
