@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -28,6 +28,14 @@ def home():
         
     allfoodEntry = foodEntry.query.all()
     return render_template('index.html' , allfoodEntry = allfoodEntry)
+
+@app.route("/delete/<int:id>")
+def delete(id):
+    food_entry = foodEntry.query.filter_by(id=id).first()
+    db.session.delete(food_entry)
+    db.session.commit()
+    return redirect("/")
+
 
 with app.app_context():
     db.create_all()
