@@ -35,7 +35,7 @@ def delete(id):
     db.session.delete(food_entry)
     db.session.commit()
     return redirect("/")
-
+    #redirect and reload
 
 with app.app_context():
     db.create_all()
